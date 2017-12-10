@@ -3,6 +3,7 @@ package com.hwatch.core;
 import java.io.File;
 import java.util.Enumeration;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
 
 import com.hwatch.core.Interfaces.FileWatchEventInterface;
 
@@ -83,19 +84,11 @@ public class FileMonitor
 				
 				lastRevisionMap = revisionMap;
 				revisionMap = new ConcurrentHashMap<String, Long>();
-				
-				try
-				{
-					Thread.sleep(10);
-				} 
-				catch (InterruptedException e)
-				{
-				}
 			}
 		};
 		
 		// Start watch task
-		new Thread(task).start();
+		Executors.newCachedThreadPool().submit(task);
 		
 		return wc;
 	}

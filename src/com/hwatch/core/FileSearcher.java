@@ -61,8 +61,15 @@ public class FileSearcher
 				_executor.submit(() -> searchAndStore(f, revisionMap, true));
 				_latestInstant = Instant.now();
 			}
-		}
 			
+			try
+			{
+				Thread.sleep(1);
+			} 
+			catch (InterruptedException e)
+			{
+			}
+		}			
 	}
 	
 	/**
