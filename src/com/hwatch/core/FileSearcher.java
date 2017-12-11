@@ -16,7 +16,6 @@ public class FileSearcher
 {
 	ExecutorService _executor = getExecutor();
 	Instant _latestInstant = Instant.now();
-	CountDownLatch _cdl = new CountDownLatch(0);
 	
 	/**
 	 * Get executor service.
@@ -64,7 +63,7 @@ public class FileSearcher
 			
 			try
 			{
-				Thread.sleep(100);
+				Thread.sleep(1);
 			} 
 			catch (InterruptedException e)
 			{
