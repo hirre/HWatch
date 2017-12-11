@@ -84,6 +84,14 @@ public class FileMonitor
 				
 				lastRevisionMap = revisionMap;
 				revisionMap = new ConcurrentHashMap<String, Long>();
+				
+				try
+				{
+					Thread.sleep(1);
+				} 
+				catch (InterruptedException e)
+				{
+				}
 			}
 		};
 		
