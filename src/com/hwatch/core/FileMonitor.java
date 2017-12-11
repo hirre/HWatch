@@ -17,9 +17,12 @@ public class FileMonitor
 	 * Watch for changes in a folder.
 	 * @param folder the folder
 	 * @param listener an event listener for callback
+	 * @param watchRecursively check sub folders recursively
 	 * @return WatchControl
 	 */
-	public static WatchControl WatchForChanges(File folder, FileWatchEventInterface listener)
+	public static WatchControl WatchForChanges(File folder, 
+			FileWatchEventInterface listener, 
+			boolean watchRecursively)
 	{	
 		WatchControl wc = new WatchControl();
 		
@@ -38,7 +41,7 @@ public class FileMonitor
 
 			while (wc.isRunning())
 			{
-				fs.searchAndStore(folder, revisionMap, true);
+				fs.searchAndStore(folder, revisionMap, watchRecursively);
 				fs.WaitUntilComplete();
 							
 				if (lastRevisionMap != null && revisionMap != null)
@@ -87,7 +90,7 @@ public class FileMonitor
 				
 				try
 				{
-					Thread.sleep(1);
+					Thread.sleep(5000);
 				} 
 				catch (InterruptedException e)
 				{

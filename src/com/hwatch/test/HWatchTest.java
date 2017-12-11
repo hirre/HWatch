@@ -38,7 +38,7 @@ public class HWatchTest
 		System.out.println("Start watching on \"" + args[0] + "\" ...");
 		
 		FileWatchListener wl = new FileWatchListener();
-		WatchControl wc = FileMonitor.WatchForChanges(watchFolder, wl);		
+		WatchControl wc = FileMonitor.WatchForChanges(watchFolder, wl, true);		
 		Instant start = Instant.now();
 				
 		while(wc.isRunning())
@@ -51,8 +51,8 @@ public class HWatchTest
 			{
 			}
 			
-			// Run test for 2 minutes
-			if (Duration.between(Instant.now(), start).abs().toMinutes() >= 2 && wc.isRunning())
+			// Run test for 5 minutes
+			if (Duration.between(Instant.now(), start).abs().toMinutes() >= 5 && wc.isRunning())
 			{
 				wc.stopWatching();
 			}

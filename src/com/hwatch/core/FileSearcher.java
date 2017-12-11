@@ -58,13 +58,13 @@ public class FileSearcher
 			//	Recursive parallel call if found file is directory
 			if (searchRecursively && f.isDirectory())
 			{
-				_executor.submit(() -> searchAndStore(f, revisionMap, true));
+				_executor.submit(() -> searchAndStore(f, revisionMap, searchRecursively));
 				_latestInstant = Instant.now();
 			}
 			
 			try
 			{
-				Thread.sleep(1);
+				Thread.sleep(100);
 			} 
 			catch (InterruptedException e)
 			{
@@ -81,11 +81,11 @@ public class FileSearcher
 			return;
 
 		// Wait if new search has been initiated before timeout limit
-		while (Duration.between(Instant.now(), _latestInstant).abs().toSeconds() < 1)
+		while (Duration.between(Instant.now(), _latestInstant).abs().toSeconds() < 2)
 		{
 			try
 			{
-				Thread.sleep(1);
+				Thread.sleep(500);
 			} 
 			catch (InterruptedException e)
 			{
