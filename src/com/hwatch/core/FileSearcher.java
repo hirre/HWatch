@@ -63,11 +63,12 @@ public class FileSearcher
 			
 			try
 			{
-				Thread.sleep(1);
+				Thread.sleep(50);
 			} 
 			catch (InterruptedException e)
 			{
 			}
+			
 		}			
 	}
 	
@@ -84,7 +85,7 @@ public class FileSearcher
 		{
 			try
 			{
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} 
 			catch (InterruptedException e)
 			{

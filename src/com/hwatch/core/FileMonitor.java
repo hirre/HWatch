@@ -85,16 +85,17 @@ public class FileMonitor
 					}
 				}
 				
-				lastRevisionMap = revisionMap;
-				revisionMap = new ConcurrentHashMap<String, Long>();
-				
 				try
 				{
-					Thread.sleep(5000);
+					if (lastRevisionMap != null)
+						Thread.sleep(5000);
 				} 
 				catch (InterruptedException e)
 				{
 				}
+				
+				lastRevisionMap = revisionMap;
+				revisionMap = new ConcurrentHashMap<String, Long>();
 			}
 		};
 		
