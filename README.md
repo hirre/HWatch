@@ -1,4 +1,4 @@
 # HWatch
 A simple file system monitoring library in java.
 
-See HWatchTest.java for an example.
+See src/com/hwatch/test/HWatchTest.java for an example.
