@@ -11,7 +11,6 @@ import com.hwatch.core.Interfaces.FileWatchEventInterface;
 /**
  * Test class for HWatch.
  * @author Hirad Asadi
- *
  */
 public class HWatchTest
 {

@@ -88,7 +88,7 @@ public class FileMonitor
 				try
 				{
 					if (lastRevisionMap != null)
-						Thread.sleep(5000);
+						Thread.sleep(3000);
 				} 
 				catch (InterruptedException e)
 				{

@@ -5,7 +5,6 @@ import java.io.File;
 /**
  * Interface for file watching listeners.
  * @author Hirad Asadi
- *
  */
 public interface FileWatchEventInterface
 {
